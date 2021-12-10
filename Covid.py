@@ -17,7 +17,7 @@ with header:
 with dataset:
     st.header('Covid-19 cases by state')
 
-    covid_19= pd.read_csv('/Users/alif/Downloads/Covid-19.csv')
+    covid_19= pd.read_csv('https://raw.githubusercontent.com/lisazain/Data-Science-Petronas-Project-/main/Covid-19.csv')
     st.write(covid_19)
 
 # confirmed cases chart (bubble plot)
@@ -49,25 +49,3 @@ hospital_admission = pd.DataFrame(covid_19.groupby('Malaysia')['Admitted'].sum()
 fig4 = px.bar(hospital_admission, x = 'Admitted', y = hospital_admission.index, height = 600, color = 'Admitted', orientation = 'h',
              color_continuous_scale = ['paleturquoise','blue'], title = 'Hospital Admission')
 st.write(fig4)
-
-main_bg = "Lisa/Virus.jpg"
-main_bg_ext = "jpg"
-
-side_bg = "Lisa/Virus.jpg"
-side_bg_ext = "jpg"
-
-https://drive.google.com/file/d/1teYtJZv5zuWKIF66qgcWG4mWhX_7S0tW/view?usp=sharing
-
-st.markdown( 
-    f"""
-    <style>
-    .reportview-container {{
-        background: url(data:image/{main_bg_ext};base64,{base64.b64encode(open(main_bg, "rb").read()).decode()})
-    }}
-   .sidebar .sidebar-content {{
-        background: url(data:image/{side_bg_ext};base64,{base64.b64encode(open(side_bg, "rb").read()).decode()})
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
